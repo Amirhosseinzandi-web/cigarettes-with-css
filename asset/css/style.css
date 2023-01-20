@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #222;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cigarette {
+    position: relative;
+    animation: cigarrete 12s linear infinite;
+    transform-style: preserve-3d;
+  }
+  .cigarette > span {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 900;
+    position: absolute;
+    transform: translate(-50%, -50%) rotateX(calc(var(--i) * 36deg))
+      translateZ(24px);
+    color: white;
+    text-shadow: 0 2px 5px rgb(0, 0, 0);
+  }
+
+  .cigarette i:first-child {
+    color: #ec9535;
+    font-style: normal;
+  }
+  .cigarette i:first-child::after {
+    content: "L";
+    color: #ccc;
+    text-transform: lowercase;
+  }
+  .cigarette span::after {
+    content: "|";
+    color: red;
+    position: absolute;
+    top: -3px;
+    filter: blur(3px);
+    text-shadow: -5px 0 2px #000, 9px 0 19px #f00, 9px 0 23px #f00,
+      9px 0 0px #222, 13px 0 #555, 17px 0 #666, 22px 0 #888, 22px 0 #999;
+  }
+  @keyframes cigarrete {
+    from {
+      transform: perspective(900px);
+    }
+    to {
+      transform: perspective(900px) rotateX(360deg);
+    }
+  }
